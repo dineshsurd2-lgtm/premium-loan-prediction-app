@@ -6,9 +6,12 @@ import joblib
 
 st.set_page_config(page_title="PremiumLoan Amount",layout="wide")
 
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR/"SmartpremiumLoan.pkl"
+
 @st.cache_resource
 def load_pipeline():
-    return joblib.load("/SmartpremiumLoan")
+    return joblib.load(MODEL_PATH)
 
 final_pipeline = load_pipeline()
 
